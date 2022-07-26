@@ -1,17 +1,13 @@
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
-
 /**
  * main - Entry point
  *
- * Return: 1 (Success)
+ * Return: Always 1 (Error)
  */
+
 int main(void)
 {
-	char *text = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-	int length = strlen(text);
-
-	write(2, text, length);
+	write(1, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
 	return (1);
 }
