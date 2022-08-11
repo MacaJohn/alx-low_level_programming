@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
   * before_main - exec when program starts
   */
