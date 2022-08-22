@@ -1,7 +1,1 @@
-# 0x15. C - File I/O
-
-- write
-- read
-- close
-- open
-- dprintf
+0x15-file_io

@@ -1,43 +1,42 @@
 #include "main.h"
 /**
-  * read_textfile - read and print
-  * @filename: file path
-  * @letters: no. to read and print
-  *
-  * Return: type ssize_t
-  */
+* read_textfile - check the code for Holberton School students.
+* @filename: file to read and write
+* @letters: number of letters to read and write.
+* Return: letters printed
+*/
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	char *buf;
-	ssize_t read_output;
+	ssize_t nletters;
+	int file;
+	char *text;
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
-	buf = malloc(sizeof(char) * letters + 1);
-	if (buf == NULL)
+	text = malloc(sizeof(char) * letters + 1);
+	if (text == NULL)
 		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+	file = open(filename, O_RDONLY);
+	if (file == -1)
 	{
-		free(buf);
+		free(text);
 		return (0);
 	}
-	read_output = read(fd, buf, sizeof(char) * letters);
-	if (read_output == -1)
+	nletters = read(file, text, sizeof(char) * letters);
+	if (nletters == -1)
 	{
-		free(buf);
-		close(fd);
+		free(text);
+		close(file);
 		return (0);
 	}
-	read_output = write(STDOUT_FILENO, buf, read_output);
-	if (read_output == -1)
+	nletters = write(STDOUT_FILENO, text, nletters);
+	if (nletters == -1)
 	{
-		free(buf);
-		close(fd);
+		free(text);
+		close(file);
 		return (0);
 	}
-	free(buf);
-	close(fd);
-	return (read_output);
+	free(text);
+	close(file);
+	return (nletters);
 }
